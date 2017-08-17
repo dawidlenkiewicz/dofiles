@@ -12,14 +12,17 @@ Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/gitignore'
 Plug 'w0ng/vim-hybrid'
+Plug 'isRuslan/vim-es6'
+Plug 'posva/vim-vue'
+Plug 'godlygeek/tabular'
 
 Plug 'christoomey/vim-tmux-runner'
 Plug 'thoughtbot/vim-rspec'
 
 Plug 'danro/rename.vim'
 
+Plug 'alvan/vim-closetag'
 Plug 'Julian/vim-textobj-variable-segment'
-Plug 'gilligan/textobj-gitgutter'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-indent'
@@ -31,7 +34,6 @@ Plug 'tek/vim-textobj-ruby'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -88,8 +90,8 @@ set background=dark
 set backspace=indent,eol,start
 set cindent
 set cinoptions=l1,j1
-set clipboard=unnamed
-set colorcolumn=100
+set clipboard=unnamedplus
+set colorcolumn=120
 set cursorline
 set diffopt+=vertical
 set expandtab
@@ -226,7 +228,7 @@ let g:EasyMotion_space_jump_first = 1
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_inc_highlight = 1
 
-let g:rspec_command = "VtrSendCommandToRunner! zeus rspec {spec}"
+let g:rspec_command = "VtrSendCommandToRunner! bin/rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>c :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
@@ -264,12 +266,6 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 " }}}
-" gitgutter {{{
-let g:gitgutter_map_keys = 0
-
-nmap ]h <plug>GitGutterNextHunk
-nmap [h <plug>GitGutterPrevHunk
-" }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
       \ "Gemfile": {"alternate": "Gemfile.lock"},
@@ -289,6 +285,7 @@ let g:syntastic_style_error_symbol = "»"
 let g:syntastic_warning_symbol = "»"
 let g:syntastic_style_warning_symbol = "»"
 " }}}
+
 " vimfiler {{{
 autocmd FileType vimfiler nmap <buffer> { <c-u>
 autocmd FileType vimfiler nmap <buffer> } <c-d>
@@ -356,3 +353,9 @@ nmap <Leader>sp :AV<cr>
 set winwidth=90
 
 nmap <Leader>gl :Glog -- %<cr>
+
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
+
+map <Leader>a= :Tabularize /=<CR>
+map <Leader>a: :Tabularize/:\zs<CR>
+map <Leader>a{ :Tabularize/{<CR>
