@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim' | Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/gitignore'
 Plug 'w0ng/vim-hybrid'
@@ -67,7 +67,7 @@ Plug 'rafcamlet/show-me-db'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'Shougo/deoplete.nvim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'nelstrom/vim-textobj-rubyblock'
@@ -108,7 +108,6 @@ set lazyredraw
 set list
 set listchars=tab:▸\ ,trail:.
 set noerrorbells
-set noesckeys
 set noshowmode
 set noswapfile
 set novisualbell
@@ -323,6 +322,7 @@ nmap <silent> - :VimFilerBufferDir<cr>
 " }}}
 " ycm {{{
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_server_python_interpreter = 'python2'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1

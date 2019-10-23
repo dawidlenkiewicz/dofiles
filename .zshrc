@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dawidlenkiewicz/.oh-my-zsh
 export CODE="$HOME/workspace"
-export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+# export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+export EDITOR="nvim"
 export GOPATH=~/workspace/go
 export PATH=$PATH:$GOPATH/bin
 export FPATH="$FPATH:$HOME/.zsh/completions"
@@ -91,8 +92,10 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 # alias vim="nvim"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias migrate="bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake db:migrate"
-alias rollback="bundle exec rake db:rollback && RAILS_ENV=test bundle exec rake db:rollback"
+# alias migrate="bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake db:migrate"
+# alias rollback="bundle exec rake db:rollback && RAILS_ENV=test bundle exec rake db:rollback"
+alias migrate="rails db:migrate && rails db:rollback && rails db:migrate && RAILS_ENV=test rails db:migrate"
+alias rollback="rails db:rollback && RAILS_ENV=test rails db:rollback"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -120,6 +123,12 @@ alias :q='exit'
 alias b='bundle'
 alias be='bundle exec'
 alias safe="cd ~/workspace/safe-backend"
+alias est="cd ~/workspace/estymator"
+alias veh="cd ~/workspace/vehiculum"
+alias lu="cd ~/workspace/vehiculum-luna"
+alias off="cd ~/workspace/vehiculum-offers-app"
+alias prun="git remote prune origin"
+alias rb=rubocop
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
